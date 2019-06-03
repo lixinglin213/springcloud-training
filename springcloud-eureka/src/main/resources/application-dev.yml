@@ -1,0 +1,11 @@
+eureka:
+  client:
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: ${register.url:http://localhost:${server.port}/eureka/}
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+  server:
+    enable-self-preservation: false
