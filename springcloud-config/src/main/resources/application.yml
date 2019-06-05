@@ -1,1 +1,10 @@
-
+server:
+  port: 9060
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lixinglin0213/config-repo.git
