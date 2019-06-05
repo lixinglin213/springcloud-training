@@ -1,0 +1,13 @@
+server:
+  port: 9060
+spring:
+  application:
+    name: gateway
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+  #    ip-address: 172.16.192.135
+  client:
+    serviceUrl:
+      defaultZone: ${register.url:http://172.16.34.156:9090/eureka/}
