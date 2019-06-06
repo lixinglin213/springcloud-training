@@ -20,6 +20,7 @@
 		<module>springcloud-config</module>
 		<module>consumer</module>
 		<module>producer</module>
+        <module>springcloud-gateway</module>
 	</modules>
 
 	<properties>

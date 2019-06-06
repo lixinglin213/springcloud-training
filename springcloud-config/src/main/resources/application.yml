@@ -7,4 +7,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lixinglin0213/config-repo.git
+          uri: https://github.com/lixinglin0213/config-repo
+          basedir: target/config
