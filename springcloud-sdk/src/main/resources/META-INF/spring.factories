@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.lixl.springcloud.sdk.registry.ConsulRegistryConfigure,\
+  com.lixl.springcloud.sdk.actuator.MonitorConfigure,\
+  com.lixl.springcloud.sdk.registry.EurekaRegistryConfigure

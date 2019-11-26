@@ -1,0 +1,59 @@
+ /*
+  * Copyright 2013-2019 the original author or authors.
+  *
+  * Licensed under the Apache License, Version 2.0 (the "License");
+  * you may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at
+  *
+  *      https://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+
+ package com.lixl.springcloud.sdk;
+
+
+ import java.util.ArrayList;
+ import java.util.List;
+
+ import org.apache.commons.logging.Log;
+ import org.apache.commons.logging.LogFactory;
+ import org.springframework.cloud.consul.discovery.ConsulServer;
+
+ import com.netflix.loadbalancer.Server;
+ import com.netflix.loadbalancer.ServerListFilter;
+
+ /**
+  * ServerList implementation that filters ConsulServers based on if all their Health
+  * Checks are PASSING.
+  *
+  * @author Spencer Gibb
+  * @author lixinglin
+  */
+ public class ConsulHealthCheckFilter implements ServerListFilter<Server> {
+
+     private static final Log log = LogFactory.getLog(ConsulHealthCheckFilter.class);
+
+     @Override
+     public List<Server> getFilteredListOfServers(List<Server> servers) {
+         List<Server> filtered = new ArrayList<>();
+         for (Server server : servers) {
+             if (server instanceof ConsulServer) {
+                 if (server.isAlive()) {
+                     filtered.add(server);
+                 }
+             } else {
+                 if (log.isDebugEnabled()) {
+                     log.debug("Unable to determine aliveness of server type "
+                             + server.getClass() + ", " + server);
+                 }
+                 filtered.add(server);
+             }
+         }
+         return filtered;
+     }
+ }
