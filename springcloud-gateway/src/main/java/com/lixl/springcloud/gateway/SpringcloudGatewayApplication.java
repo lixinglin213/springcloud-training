@@ -1,4 +1,4 @@
-package com.lixl.springcloud.springcloudgateway;
+package com.lixl.springcloud.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

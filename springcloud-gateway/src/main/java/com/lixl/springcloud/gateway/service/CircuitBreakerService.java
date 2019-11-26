@@ -1,4 +1,4 @@
-package com.lixl.springcloud.springcloudgateway.service;
+package com.lixl.springcloud.gateway.service;
 
 import org.springframework.stereotype.Service;
 

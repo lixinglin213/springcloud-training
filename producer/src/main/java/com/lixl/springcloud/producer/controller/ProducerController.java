@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProducerController {
 
     @GetMapping("/actions/say/hello")
-    public String getMessage(){
+    public String getMessage() {
         return "hello";
     }
 
     @GetMapping("/say/{something}")
-    public String say(@PathVariable("something")String something){
+    public String say(@PathVariable("something") String something) {
         return something;
     }
 

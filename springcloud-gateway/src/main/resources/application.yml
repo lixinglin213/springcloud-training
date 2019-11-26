@@ -29,7 +29,7 @@ resilience4j:
       circuitA: # ＃断路器名
         truering-buffer-size-in-closed-state: 5 ＃环形缓冲区是在封闭状态下使用的大小
         ring-buffer-size-in-half-open-state: 3 # HalfOpen 状态下的大小
-        wait-duration-in-open-state : 5000 # Open持续时间
+        wait-duration-in-open-state: 5000 # Open持续时间
         failure-rate-threshold: 50 # 到打开状态的阈值
         record-failure-predicate: com.example.resilience.RecordFailurePredicate
 #        ignore-exceptions: #没有失败＃异常类和计数
